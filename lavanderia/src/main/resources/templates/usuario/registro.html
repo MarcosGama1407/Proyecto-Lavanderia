@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuarios</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+    
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            <a href="#" th:href="@{/}" class="navbar-brand">Registro y inicio de sesion</a>
+          </form>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+            <dov class="col-md-6 col-md-offset-3">
+                <div th:if=${param.exito}>
+                    <div class="alert alert-info">
+                        Se ha registrado exitosamente a la aplicacion
+                    </div>
+                </div>
+
+                    <h1>Registrate</h1>
+                    <form th:action="@{registro}" method="post" th:object="${usuario}">
+                        <div class="form-group">
+                            <label for="nombre" class="control-label">Nombre :</label>
+                            <input id="nombre" class="form-control" th:field="*{nombre}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido" class="control-label">Apellido :</label>
+                            <input id="apellido" class="form-control" th:field="*{apellido}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono" class="control-label">Telefono :</label>
+                            <input id="telefono" class="form-control" th:field="*{telefono}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo" class="control-label">Correo :</label>
+                            <input id="correo" class="form-control" th:field="*{correo}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label for="contrasena" class="control-label">Contrasena :</label>
+                            <input id="contrasena" type="password" class="form-control" th:field="*{contrasena}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="estado" checked>
+                            <label class="form-check-label" for="estado">Checked switch checkbox input</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-sucess">Registrar</button>
+                            <span>Si estas registrado</span>
+                            <a th:href="@{/login}">Inicia sesion</a>
+                        </div>
+                    </form>
+            </dov>
+        </div>
+      </div>
+
+      <a href="">https://youtu.be/0wTsLRxS3gA</a>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
